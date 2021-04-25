@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+  firestore-emulator:
+    image: google/cloud-sdk:364.0.0-emulators
+    expose:
+      - "5173"
+    ports:
+      - "5173:5173"
+    command: [ "gcloud", "beta", "emulators", "firestore", "start", "--host-port=0.0.0.0:5173" ]
