@@ -2,9 +2,9 @@ rootProject.name = "firestore4k"
 
 include(
     // Flexible dynamic API with relaxed type checks for DB schema.
-    "api:dynamic",
+    "api:dynamic-api",
     // Typed-API with type safety for DB schema.
-    "api:typed",
+    "api:typed-api",
 
     // annotations used by annotation processor for typed API
     "annotations",

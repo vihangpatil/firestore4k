@@ -25,8 +25,7 @@ tasks.test {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            artifactId = "typed-api"
+        register<MavenPublication>("gpr") {
             from(components["kotlin"])
             pom {
                 name.set("Firestore4K")
@@ -54,9 +53,12 @@ publishing {
     }
     repositories {
         maven {
-            val releasesRepoUrl = uri(layout.buildDirectory.dir("repos/releases"))
-            val snapshotsRepoUrl = uri(layout.buildDirectory.dir("repos/snapshots"))
-            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/vihangpatil/firestore4k")
+            credentials {
+                username = project.findProperty("gpr.user")?.toString() ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key")?.toString() ?: System.getenv("TOKEN")
+            }
         }
     }
 }

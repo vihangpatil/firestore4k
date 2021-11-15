@@ -5,7 +5,7 @@ plugins {
 
 dependencies {
 
-    implementation(project(":api:typed"))
+    implementation(project(":api:typed-api"))
     compileOnly(project(":annotations"))
     ksp(project(":ksp"))
 
