@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    kotlin("plugin.serialization")
     `maven-publish`
 }
 
@@ -11,10 +12,26 @@ dependencies {
 
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.kotlinCoroutines}")
 
+    api("org.jetbrains.kotlinx:kotlinx-serialization-properties:${Version.kotlinSerialization}")
+
     api("org.slf4j:slf4j-api:${Version.slf4j}")
     runtimeOnly("org.slf4j:slf4j-simple:${Version.slf4j}")
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${Version.jacksonKotlin}")
+    testImplementation(kotlin("test-junit5"))
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter:${Version.junit5}")
+    testImplementation("org.testcontainers:junit-jupiter:${Version.testcontainers}")
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    setEnvironment(
+        "FIRESTORE_EMULATOR_HOST" to "0.0.0.0:5173",
+        "PATH" to System.getenv("PATH"),
+    )
 }
 
 publishing {

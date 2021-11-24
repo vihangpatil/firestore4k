@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
  */
-suspend fun <D : Any> add(collectionPath: String, document: D): String = withContext(Dispatchers.IO) {
+suspend inline fun <reified D : Any> add(collectionPath: String, document: D): String = withContext(Dispatchers.IO) {
     firestoreClient
         .collection(collectionPath)
         .add(document.asMap())
@@ -29,7 +29,7 @@ suspend fun <D : Any> add(collectionPath: String, document: D): String = withCon
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#set_a_document
  */
-suspend fun <D : Any> put(documentPath: String, document: D): Unit = withContext(Dispatchers.IO) {
+suspend inline fun <reified D : Any> put(documentPath: String, document: D): Unit = withContext(Dispatchers.IO) {
     firestoreClient
         .document(documentPath)
         .set(document.asMap())
@@ -40,25 +40,25 @@ suspend fun <D : Any> put(documentPath: String, document: D): Unit = withContext
 /**
  * Ref: https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
  */
-suspend fun <D : Any> get(documentPath: String, documentClass: KClass<D>): D? = withContext(Dispatchers.IO) {
+suspend inline fun <reified D : Any> get(documentPath: String): D? = withContext(Dispatchers.IO) {
     firestoreClient
         .document(documentPath)
         .get()
         .await()
-        .toKotlinObject(documentClass)
+        .toKotlinObject()
 }
 
 /**
  * Ref: https://firebase.google.com/docs/firestore/query-data/get-data#get_all_documents_in_a_collection
  */
-suspend fun <D : Any> getAll(collectionPath: String, documentClass: KClass<D>): Collection<D> =
+suspend inline fun <reified D : Any> getAll(collectionPath: String): Collection<D> =
     withContext(Dispatchers.IO) {
         firestoreClient
             .collection(collectionPath)
             .get()
             .await()
             ?.documents
-            ?.mapNotNull { it.toKotlinObject(documentClass) }
+            ?.mapNotNull { it.toKotlinObject() }
             ?: emptyList()
     }
 

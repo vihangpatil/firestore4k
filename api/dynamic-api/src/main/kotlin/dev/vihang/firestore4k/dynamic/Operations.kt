@@ -5,7 +5,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
  */
-suspend fun <D : Any> add(
+suspend inline fun <reified D : Any> add(
     path: CollectionPath,
     document: D,
 ): String = dev.vihang.firestore4k.internal.add(
@@ -16,7 +16,7 @@ suspend fun <D : Any> add(
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#set_a_document
  */
-suspend fun <D : Any> put(
+suspend inline fun <reified D : Any> put(
     path: DocumentPath,
     document: D,
 ): Unit = dev.vihang.firestore4k.internal.put(
@@ -29,7 +29,6 @@ suspend fun <D : Any> put(
  */
 suspend inline fun <reified D : Any> get(path: DocumentPath): D? = dev.vihang.firestore4k.internal.get(
     documentPath = path.toString(),
-    documentClass = D::class
 )
 
 /**
@@ -39,7 +38,6 @@ suspend inline fun <reified D : Any> getAll(
     path: CollectionPath
 ): Collection<D> = dev.vihang.firestore4k.internal.getAll(
     collectionPath = path.toString(),
-    documentClass = D::class
 )
 
 /**

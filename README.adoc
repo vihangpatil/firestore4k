@@ -11,7 +11,7 @@ ifdef::env-github[]
 endif::[]
 
 image:https://img.shields.io/github/workflow/status/vihangpatil/firestore4k/Build/main?logo=github[Build Status]
-image:https://img.shields.io/badge/kotlin-1.5.31-blue.svg?logo=kotlin[Kotlin version badge]
+image:https://img.shields.io/badge/kotlin-1.6.0-blue.svg?logo=kotlin[Kotlin version badge]
 image:https://img.shields.io/github/license/vihangpatil/firestore4k.svg[GitHub license]
 
 [WARNING]
@@ -192,6 +192,7 @@ But for simple cases, it is not worth the complexity since it is more verbose.
 [source, kotlin]
 ----
 // root collection will not have @[ChildOf] annotation.
+@Serializable
 @Collection("users")
 data class User(
     val name: String,
@@ -207,6 +208,7 @@ value class UserId(private val value: String) {
     override fun toString(): String = value
 }
 
+@Serializable
 @Collection("messages")
 @ChildOf("users")
 data class Message(

@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version Version.kotlin
+    kotlin("plugin.serialization") version Version.kotlin apply false
     id("com.github.ben-manes.versions") version Version.versionsPlugin
     id("com.google.devtools.ksp") version Version.kotlinSymbolProcessing apply false
 }

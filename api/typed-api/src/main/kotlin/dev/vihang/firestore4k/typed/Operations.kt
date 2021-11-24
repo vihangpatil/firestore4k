@@ -2,13 +2,13 @@ package dev.vihang.firestore4k.typed
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-suspend fun <D : Any> add(rootCollection: RootCollection<D, *>, document: D): String =
+suspend inline fun <reified D : Any> add(rootCollection: RootCollection<D, *>, document: D): String =
     add(rootCollection.asPath(), document)
 
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
  */
-suspend fun <D : Any> add(
+suspend inline fun <reified D : Any> add(
     path: CollectionPath<D, *>,
     document: D,
 ): String = dev.vihang.firestore4k.internal.add(
@@ -19,7 +19,7 @@ suspend fun <D : Any> add(
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#set_a_document
  */
-suspend fun <D : Any, ID : Any> put(
+suspend inline fun <reified D : Any, ID : Any> put(
     path: DocumentPath<D, ID>,
     document: D,
 ): Unit = dev.vihang.firestore4k.internal.put(
@@ -30,21 +30,19 @@ suspend fun <D : Any, ID : Any> put(
 /**
  * Ref: https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
  */
-suspend fun <D : Any, ID : Any> get(path: DocumentPath<D, ID>): D? = dev.vihang.firestore4k.internal.get(
+suspend inline fun <reified D : Any, ID : Any> get(path: DocumentPath<D, ID>): D? = dev.vihang.firestore4k.internal.get(
     documentPath = path.toString(),
-    documentClass = path.type
 )
 
-suspend fun <D : Any> getAll(rootCollection: RootCollection<D, *>): Collection<D> = getAll(rootCollection.asPath())
+suspend inline fun <reified D : Any> getAll(rootCollection: RootCollection<D, *>): Collection<D> = getAll(rootCollection.asPath())
 
 /**
  * Ref: https://firebase.google.com/docs/firestore/query-data/get-data#get_all_documents_in_a_collection
  */
-suspend fun <D : Any> getAll(
+suspend inline fun <reified D : Any> getAll(
     path: CollectionPath<D, *>
 ): Collection<D> = dev.vihang.firestore4k.internal.getAll(
     collectionPath = path.toString(),
-    documentClass = path.type
 )
 
 /**
