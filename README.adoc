@@ -1,7 +1,7 @@
 = Firestore4k
 :source-highlighter: highlightjs
 
-// customer icons for Github
+// customer icons for GitHub
 ifdef::env-github[]
 :tip-caption: 💡
 :note-caption: ℹ️
@@ -68,7 +68,7 @@ val messages = users.subCollection<Message, MessageId>("messages")
 
 == Preface
 
-link:https://cloud.google.com/firestore/[GCP Firestore] client for link:https://kotlinlang.org/[Koltin] + link:https://gradle.org/[Gradle] project.
+link:https://cloud.google.com/firestore/[GCP Firestore] client for link:https://kotlinlang.org/[Kotlin] + link:https://gradle.org/[Gradle] project.
 
 *Firestore* is a NoSQL *document-store* (tree based) database-as-a-service from Google Cloud Platform.
 
@@ -77,7 +77,7 @@ API in *two flavors*:
 * *Dynamic* -> Flexible dynamic API with relaxed type checks for DB schema. +
 * *Typed* -> Typed-API with type safety for DB schema.
 
-For *Typed* API, you can optionally use *annotations* along with *KSP* (Kotlin Symbol Processing) to autogenerate some of the boilerplate code.
+For *Typed* API, you can optionally use *annotations* along with *KSP* (Kotlin Symbol Processing) to autogenerate some boilerplate code.
 
 == Sample code
 Firestore stores the DB in alternate hierarchy of *collections* and *documents*. +

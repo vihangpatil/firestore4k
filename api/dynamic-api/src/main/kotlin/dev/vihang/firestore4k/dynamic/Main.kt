@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
-var counter = 0;
+var counter = 0
 
 data class Node(
     val id: Int,

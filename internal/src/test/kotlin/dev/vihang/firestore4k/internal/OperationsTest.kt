@@ -2,9 +2,6 @@ package dev.vihang.firestore4k.internal
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.properties.Properties
-import kotlinx.serialization.properties.decodeFromMap
-import kotlinx.serialization.properties.encodeToMap
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.TestInstance
 import org.testcontainers.containers.wait.strategy.Wait

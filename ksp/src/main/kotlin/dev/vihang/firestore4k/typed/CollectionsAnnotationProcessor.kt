@@ -60,7 +60,7 @@ class CollectionsAnnotationProcessor(
         collectionClassList: List<ClassInfo>,
     ) {
 
-        val collectionMap = collectionClassList.associate { it.collection.name to it }
+        val collectionMap = collectionClassList.associateBy { it.collection.name }
 
         collectionClassList
             .groupBy { it.packageName }

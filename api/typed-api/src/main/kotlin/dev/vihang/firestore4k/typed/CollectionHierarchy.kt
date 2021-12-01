@@ -8,7 +8,7 @@ sealed class FirestoreCollection<E : Any, ID : Any>(
     open val type: KClass<E>,
     open val docIdType: KClass<ID>,
 ) {
-    // this function is not defined as extension function to avoid passing dulicate generics
+    // this function is not defined as extension function to avoid passing duplicate generics
     inline fun <reified DOCUMENT : Any, reified DOCUMENT_ID : Any> subCollection(
         id: String
     ): SubCollection<E, ID, DOCUMENT, DOCUMENT_ID> = SubCollection(

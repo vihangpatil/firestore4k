@@ -4,7 +4,6 @@ import com.google.cloud.firestore.DocumentSnapshot
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.properties.Properties
 import kotlinx.serialization.properties.decodeFromMap
-import kotlinx.serialization.properties.decodeFromStringMap
 import kotlinx.serialization.properties.encodeToMap
 
 // Object to Map conversion, and vice-versa.

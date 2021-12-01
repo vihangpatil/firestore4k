@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withContext
-import kotlin.reflect.KClass
 
 /**
  * Ref: https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
