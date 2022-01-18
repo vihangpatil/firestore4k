@@ -1,9 +1,9 @@
-name: Build
+name: Publish
 
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the Repository
@@ -19,9 +19,11 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Gradle build
-        # TODO enable tests on CI
-        run: ./gradlew -x test --no-daemon build --stacktrace
+      - name: Gradle publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # TODO enable tests on CD
+        run: ./gradlew -x test --no-daemon publish --stacktrace
       - name: Cleanup Gradle Cache
         # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
         # Restoring these files from a GitHub Actions cache might cause problems for future builds.
