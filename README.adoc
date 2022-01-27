@@ -228,6 +228,8 @@ value class MessageId(private val value: String) {
 ----
 
 == Dependencies
+Add repository URL https://s01.oss.sonatype.org/content/repositories/snapshots/ for SNAPSHOT versions.
+
 === For _dynamic_ API
 [source, kotlin]
 ----

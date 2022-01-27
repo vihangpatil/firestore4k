@@ -5,12 +5,17 @@ plugins {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    api("org.jetbrains.kotlinx:kotlinx-serialization-properties:${Version.kotlinSerialization}")
+}
+
+java {
+    withSourcesJar()
 }
 
 publishing {
     publications {
         register<MavenPublication>("gpr") {
-            from(components["kotlin"])
+            from(components["java"])
             pom {
                 name.set("Firestore4K")
                 description.set("Firestore Kotlin Client with strict (and relaxed) type-system.")
@@ -42,6 +47,16 @@ publishing {
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            name = "OSSRH"
+            val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
             }
         }
     }
