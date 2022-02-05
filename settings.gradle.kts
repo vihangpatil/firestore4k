@@ -1,3 +1,14 @@
+plugins {
+    id("de.fayard.refreshVersions") version "0.40.1"
+}
+
+refreshVersions {
+    rejectVersionIf {
+        candidate.stabilityLevel != de.fayard.refreshVersions.core.StabilityLevel.Stable
+    }
+    extraArtifactVersionKeyRules(file("refreshVersions-extra-rules.txt"))
+}
+
 rootProject.name = "firestore4k"
 
 include(

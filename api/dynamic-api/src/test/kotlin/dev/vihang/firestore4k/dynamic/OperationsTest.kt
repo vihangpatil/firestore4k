@@ -75,8 +75,8 @@ class OperationsTest {
 
     @Test
     fun `test delete document`() = runBlocking {
-        delete(users / "user1" / messages / "message1")
-        delete(users / "user1")
+        deleteDocument(users / "user1" / messages / "message1")
+        deleteDocument(users / "user1")
     }
 
     @Test
@@ -97,11 +97,11 @@ class OperationsTest {
         }
 
         assertTrue(getAll<Message>(users / user.id / messages).isNotEmpty())
-        deleteAll(users / user.id / messages)
+        deleteCollection(users / user.id / messages)
         assertTrue(getAll<Message>(users / user.id / messages).isEmpty())
 
         assertTrue(getAll<User>(users).isNotEmpty())
-        deleteAll(users)
+        deleteCollection(users)
         assertTrue(getAll<User>(users).isEmpty())
 
         usersCreated.clear()

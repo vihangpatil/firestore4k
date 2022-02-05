@@ -22,6 +22,8 @@ Experimental
 Firestore Kotlin Client with strict (and relaxed) type-system. +
 Inspired by https://kotlinlang.org/docs/whatsnew1420.html#extensions-for-java-nio-file-path[Kotlin Path API], where div `/` symbol is overloaded to express file path.
 
+See project website at https://firestore4k.io[firestore4k.io] for detailed documentation & examples.
+
 == Code preview
 DSL to express Firestore collection & document path
 [source,kotlin]
@@ -54,7 +56,7 @@ val user = get<User>(users / UserId("user1"))
 // get all
 val messages = getAll<Message>(users / UserId("user1") / messages)
 ----
-Define `flexible` *dynamic* or `strict + type-inference` *typed* _collection hierarchy_.
+Define `flexible` **dynamic** or `strict + type-inference` **typed** _collection hierarchy_.
 [source,kotlin]
 ----
 // Using `dynamic` API
@@ -180,10 +182,10 @@ val users = getAll(users)
 val messages = getAll(users / UserId("user1") / messages)
 
 // delete
-delete(users / UserId("user1") / messages / MessageId("message1"))
-deleteAll(users / UserId("user1") / messages)
-delete(users / UserId("user1"))
-deleteAll(users)
+deleteDocument(users / UserId("user1") / messages / MessageId("message1"))
+deleteCollection(users / UserId("user1") / messages)
+deleteDocument(users / UserId("user1"))
+deleteCollection(users)
 ----
 
 === Using annotations + KSP for typed API

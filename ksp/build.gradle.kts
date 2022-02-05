@@ -4,12 +4,12 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    implementation("com.google.devtools.ksp:symbol-processing-api:${Version.kotlinSymbolProcessing}")
+    implementation(Kotlin.stdlib.jdk8)
+    implementation("com.google.devtools.ksp:symbol-processing-api:_")
 
     implementation(project(":annotations"))
 
-    implementation("com.squareup:kotlinpoet:${Version.kotlinPoet}")
+    implementation(Square.kotlinPoet)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {

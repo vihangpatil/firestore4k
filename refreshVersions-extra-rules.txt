@@ -1,0 +1,8 @@
+com.google.devtools.ksp:*
+                    ^^^
+
+org.slf4j:slf4j-*
+          ^^^^^
+
+org.testcontainers:*
+    ^^^^^^^^^^^^^^

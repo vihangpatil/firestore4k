@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
-    api("org.jetbrains.kotlinx:kotlinx-serialization-properties:${Version.kotlinSerialization}")
+    implementation(Kotlin.stdlib.jdk8)
+    api(KotlinX.serialization.properties)
 }
 
 java {

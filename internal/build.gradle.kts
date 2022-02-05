@@ -5,21 +5,21 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(Kotlin.stdlib.jdk8)
 
-    api(platform("com.google.cloud:libraries-bom:${Version.googleCloudBom}"))
+    api(platform("com.google.cloud:libraries-bom:_"))
     api("com.google.cloud:google-cloud-firestore")
 
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.kotlinCoroutines}")
+    api(KotlinX.coroutines.core)
 
-    api("org.jetbrains.kotlinx:kotlinx-serialization-properties:${Version.kotlinSerialization}")
+    api(KotlinX.serialization.properties)
 
-    api("org.slf4j:slf4j-api:${Version.slf4j}")
-    runtimeOnly("org.slf4j:slf4j-simple:${Version.slf4j}")
+    api("org.slf4j:slf4j-api:_")
+    runtimeOnly("org.slf4j:slf4j-simple:_")
 
-    testImplementation(kotlin("test-junit5"))
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter:${Version.junit5}")
-    testImplementation("org.testcontainers:junit-jupiter:${Version.testcontainers}")
+    testImplementation(Kotlin.test.junit5)
+    testRuntimeOnly(Testing.junit.jupiter)
+    testImplementation("org.testcontainers:junit-jupiter:_")
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {

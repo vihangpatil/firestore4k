@@ -3,7 +3,7 @@
 ## Checking for dependency updates
 
 ```bash
-./gradlew dependencyUpdates -Drevision=release
+./gradlew refreshVersions
 ```
 
 ## Checking for dependency resolution

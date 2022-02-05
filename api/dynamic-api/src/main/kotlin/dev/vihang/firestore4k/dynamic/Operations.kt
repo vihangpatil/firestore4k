@@ -46,7 +46,7 @@ suspend inline fun <reified D : Any> getAll(
  * Ref: https://firebase.google.com/docs/firestore/manage-data/delete-data
  */
 @ExperimentalCoroutinesApi
-suspend fun deleteAll(
+suspend fun deleteCollection(
     path: CollectionPath
 ) = dev.vihang.firestore4k.internal.deleteCollection(
     collectionPath = path.toString()
@@ -58,7 +58,7 @@ suspend fun deleteAll(
  * Ref: https://firebase.google.com/docs/firestore/manage-data/delete-data
  */
 @ExperimentalCoroutinesApi
-suspend fun delete(
+suspend fun deleteDocument(
     path: DocumentPath
 ) = dev.vihang.firestore4k.internal.deleteDocument(
     documentPath = path.toString()

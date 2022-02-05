@@ -5,15 +5,15 @@ plugins {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(Kotlin.stdlib.jdk8)
 
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.kotlinCoroutines}")
+    api(KotlinX.coroutines.core)
 
     implementation(project(":internal"))
 
-    testImplementation(kotlin("test-junit5"))
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter:${Version.junit5}")
-    testImplementation("org.testcontainers:junit-jupiter:${Version.testcontainers}")
+    testImplementation(Kotlin.test.junit5)
+    testRuntimeOnly(Testing.junit.jupiter)
+    testImplementation("org.testcontainers:junit-jupiter:_")
 }
 
 tasks.test {
