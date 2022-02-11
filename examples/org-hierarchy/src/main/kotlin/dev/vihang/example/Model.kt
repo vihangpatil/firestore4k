@@ -5,6 +5,7 @@ import dev.vihang.firestore4k.typed.Collection
 import dev.vihang.firestore4k.typed.IdOf
 
 @Collection("organizations")
+@kotlinx.serialization.Serializable
 data class Organization(
     val orgId: String,
     val orgName: String,
@@ -18,14 +19,11 @@ value class OrgId(private val value: String) {
 
 @Collection("departments")
 @ChildOf("organizations")
+@kotlinx.serialization.Serializable
 data class Department(
     val departmentId: String,
     val departmentName: String,
-) {
-
-    // Needed for DSL
-    companion object
-}
+)
 
 @IdOf("departments")
 @JvmInline
@@ -35,13 +33,10 @@ value class DepartmentId(private val value: String) {
 
 @Collection("employees")
 @ChildOf("departments")
+@kotlinx.serialization.Serializable
 data class Employee(
     val employeeId: String,
-) {
-
-    // Needed for DSL
-    companion object
-}
+)
 
 @IdOf("employees")
 @JvmInline

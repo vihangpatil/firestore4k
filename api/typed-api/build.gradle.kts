@@ -8,6 +8,7 @@ dependencies {
     implementation(Kotlin.stdlib.jdk8)
 
     api(KotlinX.coroutines.core)
+    api(KotlinX.serialization.properties)
 
     implementation(project(":internal"))
 
