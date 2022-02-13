@@ -7,7 +7,7 @@ plugins {
 }
 
 allprojects {
-    group = "dev.vihang.firestore4k"
+    group = "io.firestore4k"
     version = "1.0.0-SNAPSHOT"
 
     repositories {
