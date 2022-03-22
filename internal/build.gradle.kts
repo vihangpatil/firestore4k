@@ -15,7 +15,6 @@ dependencies {
     api(KotlinX.serialization.properties)
 
     api("org.slf4j:slf4j-api:_")
-    runtimeOnly("org.slf4j:slf4j-simple:_")
 
     testImplementation(Kotlin.test.junit5)
     testRuntimeOnly(Testing.junit.jupiter)
