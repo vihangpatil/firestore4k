@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   firestore-emulator:
-    image: google/cloud-sdk:377.0.0-emulators
+    image: google/cloud-sdk:384.0.1-emulators
     expose:
       - "5173"
     ports:

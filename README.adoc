@@ -11,7 +11,7 @@ ifdef::env-github[]
 endif::[]
 
 image:https://img.shields.io/github/workflow/status/vihangpatil/firestore4k/Build/main?logo=github[Build Status]
-image:https://img.shields.io/badge/kotlin-1.6.10-blue.svg?logo=kotlin[Kotlin version badge]
+image:https://img.shields.io/badge/kotlin-1.6.21-blue.svg?logo=kotlin[Kotlin version badge]
 image:https://img.shields.io/github/license/vihangpatil/firestore4k.svg[GitHub license]
 
 Firestore Client for Kotlin JVM with strict (and relaxed) type-system. +
