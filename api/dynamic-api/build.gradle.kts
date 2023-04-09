@@ -10,6 +10,9 @@ dependencies {
     api(KotlinX.coroutines.core)
     api(KotlinX.serialization.properties)
 
+    api(platform("com.google.cloud:libraries-bom:_"))
+    api("com.google.cloud:google-cloud-firestore")
+
     implementation(project(":internal"))
 
     testImplementation(Kotlin.test.junit5)

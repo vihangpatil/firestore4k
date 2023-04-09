@@ -22,7 +22,6 @@ suspend fun <T> ApiFuture<T>.await(): T {
     // fast path when CompletableFuture is already done (does not suspend)
     if (isDone) {
         try {
-            @Suppress("UNCHECKED_CAST", "BlockingMethodInNonBlockingContext")
             return get() as T
         } catch (e: ExecutionException) {
             throw e.cause ?: e // unwrap original cause from ExecutionException
