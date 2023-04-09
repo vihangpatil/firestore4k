@@ -10,8 +10,9 @@ ifdef::env-github[]
 :warning-caption: ⚠️
 endif::[]
 
-image:https://img.shields.io/github/workflow/status/vihangpatil/firestore4k/Build/main?logo=github[Build Status]
-image:https://img.shields.io/badge/kotlin-1.7.0-blue.svg?logo=kotlin[Kotlin version badge]
+image:https://github.com/vihangpatil/firestore4k/actions/workflows/build.yaml/badge.svg?branch=main[Build Status]
+image:https://img.shields.io/github/actions/workflow/status/vihangpatil/firestore4k/build.yaml?branch=main&logo=github[Build Status]
+image:https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin[Kotlin version badge]
 image:https://img.shields.io/github/license/vihangpatil/firestore4k.svg[GitHub license]
 
 Firestore Client for Kotlin JVM with strict (and relaxed) type-system. +
