@@ -124,7 +124,7 @@ class FirestoreClientTest {
 
         @Container
         @JvmStatic
-        private val firestore = GenericContainer(DockerImageName.parse("google/cloud-sdk:425.0.0-emulators"))
+        private val firestore = GenericContainer(DockerImageName.parse("google/cloud-sdk:440.0.0-emulators"))
             .withExposedPorts(5173)
             .withCommand("gcloud", "beta", "emulators", "firestore", "start", "--host-port=0.0.0.0:5173")
     }

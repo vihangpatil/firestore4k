@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: "temurin"
-          java-version: "19.0.2"
+          java-version: "20.0.2"
           cache: gradle
       - name: Validate gradle wrapper
         uses: gradle/wrapper-validation-action@v1

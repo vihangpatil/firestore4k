@@ -8,7 +8,9 @@ dependencies {
     implementation(Kotlin.stdlib.jdk8)
 
     api(platform("com.google.cloud:libraries-bom:_"))
-    api("com.google.cloud:google-cloud-firestore")
+    api("com.google.cloud:google-cloud-firestore") {
+         exclude("com.google.guava", "listenablefuture")
+    }
 
     api(KotlinX.coroutines.core)
 
