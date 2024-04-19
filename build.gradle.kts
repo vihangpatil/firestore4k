@@ -15,13 +15,13 @@ allprojects {
     }
 
     tasks.withType<JavaCompile>().configureEach {
-        sourceCompatibility = JavaVersion.VERSION_20.toString()
-        targetCompatibility = JavaVersion.VERSION_20.toString()
+        sourceCompatibility = JavaVersion.VERSION_21.toString()
+        targetCompatibility = JavaVersion.VERSION_21.toString()
     }
 
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_20.majorVersion
+            jvmTarget = JavaVersion.VERSION_21.majorVersion
         }
     }
 }
