@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     kotlin("jvm")
@@ -8,20 +9,21 @@ plugins {
 
 allprojects {
     group = "io.firestore4k"
-    version = "2.0.0-SNAPSHOT"
+    version = "2.1.0-SNAPSHOT"
 
     repositories {
         mavenCentral()
     }
 
     tasks.withType<JavaCompile>().configureEach {
+        javaCompiler = javaToolchains.compilerFor {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
         sourceCompatibility = JavaVersion.VERSION_21.toString()
         targetCompatibility = JavaVersion.VERSION_21.toString()
     }
 
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_21.majorVersion
-        }
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions.jvmTarget = JvmTarget.JVM_21
     }
 }

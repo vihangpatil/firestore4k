@@ -12,53 +12,39 @@ dependencies {
     implementation(Square.kotlinPoet)
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions {
-        freeCompilerArgs += listOf("-opt-in=kotlin.RequiresOptIn")
-    }
-}
-
 java {
     withSourcesJar()
 }
 
 publishing {
     publications {
-        register<MavenPublication>("gpr") {
+        register<MavenPublication>("maven") {
             from(components["java"])
             pom {
-                name.set("Firestore4K")
-                description.set("Firestore Kotlin Client with strict (and relaxed) type-system.")
+                name = "Firestore4K"
+                description = "Firestore Kotlin Client with strict (and relaxed) type-system."
                 licenses {
                     license {
-                        name.set("The Apache License, Version 2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        name = "The Apache License, Version 2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
                 developers {
                     developer {
-                        id.set("vihangpatil")
-                        name.set("Vihang Patil")
-                        email.set("vihang.patil@gmail.com")
+                        id = "vihangpatil"
+                        name = "Vihang Patil"
+                        email = "vihang.patil@gmail.com"
                     }
                 }
                 scm {
-                    url.set("https://github.com/vihangpatil/firestore4k")
-                    connection.set("scm:git:git@github.com:vihangpatil/firestore4k.git")
-                    developerConnection.set("scm:git:git@github.com:vihangpatil/firestore4k.git")
+                    url = "https://github.com/vihangpatil/firestore4k"
+                    connection = "scm:git:git@github.com:vihangpatil/firestore4k.git"
+                    developerConnection = "scm:git:git@github.com:vihangpatil/firestore4k.git"
                 }
             }
         }
     }
     repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/vihangpatil/firestore4k")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
         maven {
             name = "OSSRH"
             val releasesRepoUrl = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
